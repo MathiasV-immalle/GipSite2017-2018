@@ -146,7 +146,54 @@ zeker stevig bevestigen en extra vastdrukken, zodat de lijm (en dus ook het sche
 	
 	<div class="col-text">
 		<h4>9u00-13u00</h4>
-		<p><u>Remote Support:</u><br><br>...</p>
+		<p><u>Remote Support:</u><br><br>
+		Vandaag heb ik maar een half dagje gewerkt, tot 13u. 
+		<br>Dit idee kwam van het bedrijf zelf omdat ze vaak merken dat studenten in het midden van de week toch wel extra tijd kunnen gebruiken om notities bij te werken. 
+		<br>Maar dat wil niks zeggen dat ik op een half dagje niks heb kunnen doen. 
+		<br>Vandaag kreeg ik zicht op de verschillende softwarepakketten die VanRoey.be gebruikt, en ook kreeg ik info over hun fysieke én virtuele servers. 
+		<br>Jammer genoeg kreeg ik wegens privacy-regels geen plannetje van de server-indeling of screenshots van de programma's. 
+		<br>Wel heb ik een afgewerkt Ticket gekregen van een medewerker zelf. Zo overtreed ik geen privacy-regels en kunnen er geen problemen met klanten ontstaan. 
+		<br>Dit Ticket kan u onderaan terugvinden. Eerst vertel ik kort wat ik vandaag precies gezien heb.
+<br><br><u>Ticketingsysteem: Microsoft Navision</u></p>
+<p><br>- Microsoft Navision is het programma dat VanRoey.be gebruikt als Ticketingsysteem. Tickets worden handmatig aangemaakt met input die verkregen wordt via e-mail, telefoon, of via een online portal: de website.
+  <br><br>- Eerst maak je een nieuw ticket aan en selecteer je de klant.
+  <br><br>- Vervolgens selecteer je het soort incident: Major Incident - Incident - Request Fulfilment
+    <br>&nbsp&nbsp&nbsp Opmerking: Als alle servers van een bedrijf zoals Torfs (grote klant van VanRoey.be) down gaan, 
+	<br>&nbsp&nbsp&nbsp moet dit onmiddellijk opgelost worden: dit is een Major Incident. 
+	<br>&nbsp&nbsp&nbsp Een Incident zou bijvoorbeeld zijn dat een afdeling van een onderneming geen internet meer heeft. 
+	<br>&nbsp&nbsp&nbsp Een Request Fulfilment is dat één persoon niet meer aan de netwerk-shares kan, 
+	<br>&nbsp&nbsp&nbsp maar hij kan gewoon de computer van een collega gebruiken en zo het probleem even omzeilen: 
+	<br>&nbsp&nbsp&nbsp Geen enorm probleem dus.
+  <br><br>- Vervolgens selecteer je een prioriteit: Zeer hoog - Hoog - Normaal - Laag
+    <br>&nbsp&nbsp&nbsp Opmerking: Lage prioriteit wil zeggen dat er bijvoorbeeld een functie in Word niet meer werkt, 
+	<br>&nbsp&nbsp&nbsp maar dat de klant wel nog worddocumenten kan maken en gebruiken. 
+	<br>&nbsp&nbsp&nbsp Het probleem is niet super erg maar zou wel opgelost moeten worden.
+  <br><br>- U merkt dat deze twee items heel nauw verwant zijn met elkaar.
+<br><br>- Hierna worden de gegevens van de gebruiker zelf (en dus niet van de bedrijfsleider of dergelijke) genoteerd, en kunnen er eventuele opmerkingen geplaatst worden.
+<br><br>- Enkele opmerkingen:
+  <br>&nbsp&nbsp&nbsp- Sommige klanten kopen een SLA-contract. Hier bestaan twee versies: één van 1uur en één van 4uur. 
+  <br>&nbsp&nbsp&nbsp Dit wil zeggen dat wanneer een klant met een probleem dit contract heeft, 
+  <br>&nbsp&nbsp&nbsp VanRoey.be binnen de bijhorende termijn moet reageren op het probleem, anders zullen zij een boete moeten betalen. 
+  <br>&nbsp&nbsp&nbsp De SLA-contracthouders worden dus sneller geholpen dan klanten zonder dit contract.
+  <br>&nbsp&nbsp&nbsp- Sommige klanten kopen een Service-contract. 
+  <br>&nbsp&nbsp&nbsp Dit houd in dat de klanten 24/24 en 7/7 geholpen moeten worden door VanRoey.be, 
+  <br>&nbsp&nbsp&nbsp dus ook in weekends en vakanties. Hiervoor worden er techniekers stand-by gehouden, dit werkt via een beurtrollensysteem.
+  <br>&nbsp&nbsp&nbsp- VanRoey.be is momenteel aan het kijken naar een ander systeem waar ik de naam niet van mag weten,
+  <br>&nbsp&nbsp&nbsp maar met dat programma zouden er veel tickets volautomatisch kunnen worden aangemaakt 
+  <br>&nbsp&nbsp&nbsp en zo zouden er ook screenshots mee opgeslagen kunnen worden (wat tot nu toe niet mogelijk was).
+<br><br><u>Serverniveau: VMware</u>
+<br><br>- VMware: Hypervisor. Via dit programma zet VanRoey.be zijn virtuele servers op zijn fysieke servers.
+  <br><br>- De cluster (groep samenwerkende servers) van VanRoey.be bestaat uit 4 fysieke servers met elk 140GB werkgeheugen (en andere details). Waarom deze servers elk zoveel werkgeheugen hebben is, wanneer er 3 servers uitvallen (uitzonderlijk) moet de overblijvende server alles op zichzelf kunnen draaien.
+  <br><br>- VanRoey.be werkt vooral met Microsoft Server 2012, maar ook nog enkele 2008 servers en al enkele 2016 servers.
+    <br>- Eigen opmerking: Microsoft Server 2016 heeft volledig dezelfde lay-out als Windows 10! Aleen heeft deze de mogelijkheden van een server.
+  <br><br>- Een tegenhanger van VMware is bijvoorbeeld HyperV binnen Windows zelf.
+<br><br><u>Securityniveau</u>
+<br><br>- Fortinet: Security vendor. Vanroey.be heeft niet één, niet geen, maar twee firewalls (waarvan 1 reserve uiteraard) met de eerste failover door Telenet (omdat VanRoey.be een partner is van Telenet), en een tweede door bijvoorbeeld Proximus (hangt er een beetje van af).
+<br><br><u>Switchingniveau</u>
+<br><br>- VanRoey.be heeft één core-switch, in een cluster met andere switchen. De core-switch is een stack van switchen: Allerlei switchen boven elkaar in één of meerdere kasten vlak naast elkaar. Dit brengt mooie voordelen met zich mee zoals betere performantie, en zo kunnen bijvoorbeeld ook twee poorten van 1gigabit gebundeld worden tot één poort van 2gigabit, wat zorgt voor een mooie Uplink.
+<br><br><u>Monitoringspakket</u>
+<br><br>- Assurline.vanroey.be is een eigen programma dat VanRoey.be gebruikt om servers van hun klanten te monitoren. Men effectief alle klanten met hun apparatuur afzonderlijk bekijken en zo meteen zien wanneer er een probleem dreigt aan te komen. Zo kan VanRoey.be tijdig een server-engineer ter plekke laten komen om het probleem op te lossen nog voor dat het zich voor kan doen. Dit bespaart de klant misschien wel een down-time en dus ook heel wat kosten en problemen. Klanten die deze extra feature wensen, moeten uiteraard een betalend contract tekenen. 
+</p>
 		<br><br>
 	</div>
 	
